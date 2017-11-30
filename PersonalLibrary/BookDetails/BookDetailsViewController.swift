@@ -8,14 +8,30 @@
 
 import UIKit
 
+protocol BookDetailsViewControllerDelegate: class {
+    func doneWithDetails()
+}
+
 class BookDetailsViewController: UIViewController {
+    
+    @IBOutlet var bookName: UILabel!
+    
+    var bookDetailsController: BookDetailsController?
+    weak var delegate: BookDetailsViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.bookDetailsController?.viewModelUpdated = updateViewModel
+    
+        self.bookDetailsController?.fetch()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 
+    func updateViewModel(){
+        self.bookName.text = self.bookDetailsController?.bookViewModel?.name
+    }
 }

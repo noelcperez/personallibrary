@@ -63,7 +63,12 @@ class LibraryCoordinator: NSObject{
         
         //Configure profile tab
         self.profileNavigationController = self.tabBarController.viewControllers?[TabItems.profile.rawValue] as? UINavigationController
+        let profileService = ProfileService()
+        let profileController = ProfileController(profileService: profileService)
         let profileViewController = StoryboardScene.Library.profileViewController.instantiate()
+        //Inject properties
+        profileViewController.controller = profileController
+        profileViewController.delegate = self
         self.profileNavigationController?.viewControllers = [profileViewController]
     }
 }
@@ -78,14 +83,43 @@ extension LibraryCoordinator: UITabBarControllerDelegate{
     }
 }
 
-extension LibraryCoordinator: AuthorsViewControllerDelegate{
-    func showAuthorDetails(_ viewController: AuthorsViewController, authorId: String) {
-        
+//MARK: - Books navigation delegates
+extension LibraryCoordinator: BooksViewControllerDelegate{
+    func showBookDetails(_ viewController: BooksViewController, bookId: String) {
+        let bookService = BooksService()
+        let bookDetailsController = BookDetailsController(booksService: bookService, bookId: bookId)
+        let bookDetailsViewController = StoryboardScene.Library.bookDetailsViewController.instantiate()
+        //Inject properties
+        bookDetailsViewController.bookDetailsController = bookDetailsController
+        bookDetailsViewController.delegate = self
+        self.booksNavigationController?.pushViewController(bookDetailsViewController, animated: true)
     }
 }
 
-extension LibraryCoordinator: BooksViewControllerDelegate{
-    func showBookDetails(_ viewController: BooksViewController, bookId: String) {
-        
+extension LibraryCoordinator: BookDetailsViewControllerDelegate{
+    func doneWithDetails() {
+        self.booksNavigationController?.popViewController(animated: true)
     }
+}
+
+//MARK: - Authors Navigation delegates
+extension LibraryCoordinator: AuthorsViewControllerDelegate{
+    func showAuthorDetails(_ viewController: AuthorsViewController, authorId: String) {
+        let authorService = AuthorsService()
+        let authorDetailsController = AuthorDetailsController(authorsService: authorService, authorId: authorId)
+        let authorDetailsViewController = StoryboardScene.Library.authorDetailsViewController.instantiate()
+        //Inject properties
+        authorDetailsViewController.controller = authorDetailsController
+        authorDetailsViewController.delegate = self
+        self.authorNavigationController?.pushViewController(authorDetailsViewController, animated: true)
+    }
+}
+
+extension LibraryCoordinator: AuthorDetailsViewControllerDelegate{
+    
+}
+
+//MARK: - Profile Navigation delegates
+extension LibraryCoordinator: ProfileViewControllerDelegate{
+    
 }

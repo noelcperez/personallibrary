@@ -22,13 +22,18 @@ class BooksViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.viewConfigurator()
+        
+        self.booksController?.fetchBooks()
+    }
+    
+    fileprivate func viewConfigurator(){
         self.tableView.register(cellType: BookTableViewCell.self)
+        self.tableView.tableFooterView = UIView()
         
         self.booksController?.viewModelUpdated = { [unowned self] in
             self.tableView.reloadData()
         }
-        
-        self.booksController?.fetchBooks()
     }
     
     // MARK: - Table view data source
@@ -55,7 +60,11 @@ class BooksViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if let bookId = self.booksController?.bookId(forViewModelIndex: indexPath.row){
+            tableView.deselectRow(at: indexPath, animated: true)
+            
+            self.delegate?.showBookDetails(self, bookId: bookId)
+        }
     }
 
 }

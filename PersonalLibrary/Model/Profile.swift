@@ -1,13 +1,14 @@
 //
-//  AuthorViewModel.swift
+//  Profile.swift
 //  PersonalLibrary
 //
-//  Created by Noel Perez on 11/29/17.
+//  Created by Noel Perez on 11/30/17.
 //  Copyright © 2017 Noel C. Perez. All rights reserved.
 //
 
 import UIKit
 
-struct AuthorViewModel {
+struct Profile {
+    var id: String
     var name: String
 }

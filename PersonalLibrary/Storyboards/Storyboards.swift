@@ -69,6 +69,8 @@ enum StoryboardScene {
         
         static let initialScene = InitialSceneType<UITabBarController>(storyboard: Library.self)
         
+        static let authorDetailsViewController = SceneType<PersonalLibrary.AuthorDetailsViewController>(storyboard: Library.self, identifier: "AuthorDetailsViewController")
+
         static let authorsViewController = SceneType<PersonalLibrary.AuthorsViewController>(storyboard: Library.self, identifier: "AuthorsViewController")
         
         static let bookDetailsViewController = SceneType<PersonalLibrary.BookDetailsViewController>(storyboard: Library.self, identifier: "BookDetailsViewController")

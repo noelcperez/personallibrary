@@ -9,11 +9,12 @@
 import UIKit
 
 typealias BooksResultCallback = (Result<[Book]>) -> Void
-typealias BookResultCallback = (Result<Book>) -> Void
+typealias OneBookResultCallback = (Result<Book>) -> Void
 
 protocol BooksServiceProtocol {
     func fetchBooks(completionHandler: BooksResultCallback)
-    func edit(book: Book, completionHandler: BookResultCallback)
+    func edit(book: Book, completionHandler: OneBookResultCallback)
+    func fetchBook(id: String, completionHandler: OneBookResultCallback)
 }
 
 class BooksService: BooksServiceProtocol {
@@ -26,11 +27,20 @@ class BooksService: BooksServiceProtocol {
         return [book1, book2, book3]
     }()
     
-    func fetchBooks(completionHandler: (Result<[Book]>) -> Void) {
+    func fetchBooks(completionHandler: BooksResultCallback) {
         completionHandler(Result.success(self.memoryBooks))
     }
     
-    func edit(book: Book, completionHandler: (Result<Book>) -> Void) {
+    func fetchBook(id: String, completionHandler: OneBookResultCallback){
+        if let index = self.memoryBooks.index(where: { $0.id == id}){
+            completionHandler(Result.success(self.memoryBooks[index]))
+        }
+        else{
+            completionHandler(Result.error("Not found"))
+        }
+    }
+    
+    func edit(book: Book, completionHandler: OneBookResultCallback) {
         if let bookIndex = self.memoryBooks.index(where: { (_book) -> Bool in
             return _book.id == book.id
         }){

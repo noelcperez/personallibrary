@@ -8,19 +8,16 @@
 
 import UIKit
 
-protocol ViewModelUpdateProtocol {
-    var viewModelUpdated: (() -> Void)? { set get }
-}
-
 protocol BooksControllerProtocol: class, ViewModelUpdateProtocol {
     var booksService: BooksServiceProtocol { get }
     var booksViewModel: [BookViewModel]? { get }
     
     func fetchBooks()
-    func editBook(index: Int)
+    func bookId(forViewModelIndex index: Int) -> String
 }
 
 class BooksController: NSObject, BooksControllerProtocol {
+    
     var viewModelUpdated: (() -> Void)?
     
     private var books = [Book](){
@@ -40,6 +37,7 @@ class BooksController: NSObject, BooksControllerProtocol {
         self.booksService = booksService
     }
     
+    //MARK: - BooksController Protocol implementation
     func fetchBooks() {
         self.booksService.fetchBooks { [unowned self] (result) in
             switch result{
@@ -52,16 +50,7 @@ class BooksController: NSObject, BooksControllerProtocol {
         }
     }
     
-    func editBook(index: Int) {
-        let selectedBook = self.books[index]
-        self.booksService.edit(book: selectedBook) { (result) in
-            switch result{
-                case .success(let _):
-                    break
-                default:
-                    break
-            }
-        }
+    func bookId(forViewModelIndex index: Int) -> String{
+        return self.books[index].id
     }
-    
 }
