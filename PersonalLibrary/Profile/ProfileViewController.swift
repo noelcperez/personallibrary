@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ProfileViewControllerDelegate: class{
-    
+    func signOut()
 }
 
 class ProfileViewController: UIViewController {
@@ -37,5 +37,16 @@ class ProfileViewController: UIViewController {
     
     fileprivate func viewModelUpdated(){
         self.userName.text =  self.controller?.profileViewModel?.name
+    }
+    
+    @IBAction func signOutButtonTouchUpInside(_ sender: UIButton) {
+        self.controller?.signOut(completionHandler: {[unowned self] (error) in
+            if let _ = error{
+                //Show error
+            }
+            else{
+                self.delegate?.signOut()
+            }
+        })
     }
 }

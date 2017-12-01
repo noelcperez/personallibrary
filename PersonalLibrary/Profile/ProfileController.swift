@@ -13,6 +13,7 @@ protocol ProfileControllerProtocol: class, ViewModelUpdateProtocol{
     var profileViewModel: ProfileViewModel? { set get }
     
     func fetchProfile()
+    func signOut(completionHandler: (String?) -> Void)
 }
 
 class ProfileController: ProfileControllerProtocol {
@@ -45,5 +46,9 @@ class ProfileController: ProfileControllerProtocol {
                     break
             }
         }
+    }
+    
+    func signOut(completionHandler: (String?) -> Void){
+        self.profileService.signOut(completionHandler: completionHandler)
     }
 }

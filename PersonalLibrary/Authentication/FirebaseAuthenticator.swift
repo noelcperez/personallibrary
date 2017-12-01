@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import Firebase
 
 class FirebaseAuthenticator: Authenticator {
     var isUserAuthenticated: Bool{
         get {
-            return true
+            //if let _ = try? Auth.auth().signOut(){ }
+            return Auth.auth().currentUser != nil
         }
     }
 }

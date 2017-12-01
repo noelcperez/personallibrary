@@ -23,6 +23,10 @@ class BooksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         
         self.viewConfigurator()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         self.booksController?.fetchBooks()
     }

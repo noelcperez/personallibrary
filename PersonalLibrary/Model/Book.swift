@@ -8,8 +8,20 @@
 
 import UIKit
 
-struct Book {
-    var id: String
+struct Book: Codable {
+    var id: String!
     var name: String
     
+}
+
+extension Book {
+    init(from decoder: Decoder) throws {
+        let book = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.name = try book.decode(String.self, forKey: .name)
+    }
+    
+    fileprivate enum CodingKeys: String, CodingKey{
+        case name
+    }
 }

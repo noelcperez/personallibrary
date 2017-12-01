@@ -76,6 +76,54 @@
             </objects>
             <point key="canvasLocation" x="1769" y="122"/>
         </scene>
+        <!--Add Book View Controller-->
+        <scene sceneID="Gnz-Ny-hTz">
+            <objects>
+                <viewController storyboardIdentifier="AddBookViewController" id="hzX-bJ-FvW" customClass="AddBookViewController" customModule="PersonalLibrary" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mJd-L2-YfW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pEx-BH-5Cr">
+                                <rect key="frame" x="16" y="40" width="33.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0ht-q5-rGu">
+                                <rect key="frame" x="16" y="69" width="339" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nDE-RE-A7R">
+                                <rect key="frame" x="172.5" y="119" width="30" height="30"/>
+                                <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="addButtonTouchUpInside:" destination="hzX-bJ-FvW" eventType="touchUpInside" id="RbQ-qs-rdI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nDE-RE-A7R" firstAttribute="top" secondItem="0ht-q5-rGu" secondAttribute="bottom" constant="20" id="9Oy-Ki-JVA"/>
+                            <constraint firstItem="nDE-RE-A7R" firstAttribute="centerX" secondItem="mJd-L2-YfW" secondAttribute="centerX" id="C0G-p1-qS7"/>
+                            <constraint firstItem="0ht-q5-rGu" firstAttribute="top" secondItem="pEx-BH-5Cr" secondAttribute="bottom" constant="8" id="Fwq-na-Mtf"/>
+                            <constraint firstItem="Nsf-2q-ygO" firstAttribute="trailing" secondItem="0ht-q5-rGu" secondAttribute="trailing" constant="20" id="FxO-Dn-vRY"/>
+                            <constraint firstItem="pEx-BH-5Cr" firstAttribute="top" secondItem="Nsf-2q-ygO" secondAttribute="top" constant="20" id="UFd-HE-aVB"/>
+                            <constraint firstItem="pEx-BH-5Cr" firstAttribute="leading" secondItem="Nsf-2q-ygO" secondAttribute="leading" constant="16" id="q12-bn-0Go"/>
+                            <constraint firstItem="0ht-q5-rGu" firstAttribute="leading" secondItem="pEx-BH-5Cr" secondAttribute="leading" id="wyf-r6-azv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Nsf-2q-ygO"/>
+                    </view>
+                    <connections>
+                        <outlet property="bookTitle" destination="0ht-q5-rGu" id="WHf-PB-v4p"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yrc-GI-bLa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2617" y="123"/>
+        </scene>
         <!--Profile View Controller-->
         <scene sceneID="odE-1e-XAW">
             <objects>
@@ -90,11 +138,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EfZ-Kq-tjt">
+                                <rect key="frame" x="157" y="617" width="60" height="30"/>
+                                <state key="normal" title="Sign Out"/>
+                                <connections>
+                                    <action selector="signOutButtonTouchUpInside:" destination="kV1-lG-n9R" eventType="touchUpInside" id="vEF-bN-nFo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ZH6-Q8-kSY" firstAttribute="centerY" secondItem="lBf-3f-l4n" secondAttribute="centerY" id="4sO-Np-85q"/>
+                            <constraint firstItem="kVC-po-HRV" firstAttribute="bottom" secondItem="EfZ-Kq-tjt" secondAttribute="bottom" constant="20" id="QSx-vs-4rU"/>
                             <constraint firstItem="ZH6-Q8-kSY" firstAttribute="centerX" secondItem="lBf-3f-l4n" secondAttribute="centerX" id="hlE-2P-FaD"/>
+                            <constraint firstItem="EfZ-Kq-tjt" firstAttribute="centerX" secondItem="lBf-3f-l4n" secondAttribute="centerX" id="hvU-5X-9Kp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kVC-po-HRV"/>
                     </view>
@@ -172,6 +229,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HUD-9g-PNq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1769" y="-624"/>
+        </scene>
+        <!--Add Author View Controller-->
+        <scene sceneID="nHb-fM-L6w">
+            <objects>
+                <viewController storyboardIdentifier="AddAuthorViewController" id="3tE-0v-nUD" customClass="AddAuthorViewController" customModule="PersonalLibrary" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="icd-eO-Ktm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="acs-ZF-fmt"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fod-LN-Gf6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2618" y="-625"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="iL7-7w-hz1">

@@ -58,6 +58,12 @@ extension UIViewController {
 enum StoryboardScene {
     enum Authentication: StoryboardType {
         static let storyboardName = "Authentication"
+        
+        static let initialScene = InitialSceneType<UINavigationController>(storyboard: Authentication.self)
+        
+        static let signInViewController = SceneType<PersonalLibrary.SignInViewController>(storyboard: Authentication.self, identifier: "SignInViewController")
+        
+        static let signUpViewController = SceneType<PersonalLibrary.SignUpViewController>(storyboard: Authentication.self, identifier: "SignUpViewController")
     }
     enum LaunchScreen: StoryboardType {
         static let storyboardName = "LaunchScreen"
@@ -69,8 +75,12 @@ enum StoryboardScene {
         
         static let initialScene = InitialSceneType<UITabBarController>(storyboard: Library.self)
         
+        static let addAuthorViewController = SceneType<PersonalLibrary.AddAuthorViewController>(storyboard: Library.self, identifier: "AddAuthorViewController")
+        
+        static let addBookViewController = SceneType<PersonalLibrary.AddBookViewController>(storyboard: Library.self, identifier: "AddBookViewController")
+        
         static let authorDetailsViewController = SceneType<PersonalLibrary.AuthorDetailsViewController>(storyboard: Library.self, identifier: "AuthorDetailsViewController")
-
+        
         static let authorsViewController = SceneType<PersonalLibrary.AuthorsViewController>(storyboard: Library.self, identifier: "AuthorsViewController")
         
         static let bookDetailsViewController = SceneType<PersonalLibrary.BookDetailsViewController>(storyboard: Library.self, identifier: "BookDetailsViewController")
