@@ -9,7 +9,7 @@
 import UIKit
 
 protocol BookDetailsViewControllerDelegate: class {
-    func doneWithDetails()
+    
 }
 
 class BookDetailsViewController: UIViewController {

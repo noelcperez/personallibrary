@@ -55,6 +55,7 @@
 		DCAABB201FCF041D00C1A7D2 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCAABB1E1FCF041D00C1A7D2 /* Authentication.storyboard */; };
 		DCAABB221FCF048A00C1A7D2 /* Library.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCAABB211FCF048A00C1A7D2 /* Library.storyboard */; };
 		DCAABB371FCF08FE00C1A7D2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAABB361FCF08FE00C1A7D2 /* ProfileViewController.swift */; };
+		DCCB52F21FD5DD0800D73E8F /* AddAuthorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCB52F11FD5DD0800D73E8F /* AddAuthorController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +135,7 @@
 		DCAABB1E1FCF041D00C1A7D2 /* Authentication.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
 		DCAABB211FCF048A00C1A7D2 /* Library.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Library.storyboard; sourceTree = "<group>"; };
 		DCAABB361FCF08FE00C1A7D2 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		DCCB52F11FD5DD0800D73E8F /* AddAuthorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAuthorController.swift; sourceTree = "<group>"; };
 		E8D8E29DD9611509E7ADFFB4 /* Pods-PersonalLibrary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersonalLibrary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PersonalLibrary/Pods-PersonalLibrary.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -311,6 +313,7 @@
 		DC2BE3221FD201F4007679C9 /* AddAuthor */ = {
 			isa = PBXGroup;
 			children = (
+				DCCB52F11FD5DD0800D73E8F /* AddAuthorController.swift */,
 				DC2BE3241FD20271007679C9 /* AddAuthorViewController.swift */,
 			);
 			path = AddAuthor;
@@ -355,8 +358,8 @@
 				DC2BE2CD1FD07D03007679C9 /* ViewModelUpdateProtocol.swift */,
 				DC2BE2A11FCF115A007679C9 /* Coordinator */,
 				DC2BE2A41FCF126D007679C9 /* Authentication */,
-				DC2BE2FC1FD201C1007679C9 /* Author */,
 				DC2BE3071FD201C1007679C9 /* Books */,
+				DC2BE2FC1FD201C1007679C9 /* Author */,
 				DCAABB2F1FCF054200C1A7D2 /* Profile */,
 				DC2BE2B31FCF2630007679C9 /* Model */,
 				DCAABB1C1FCF041D00C1A7D2 /* Storyboards */,
@@ -721,6 +724,7 @@
 				DC2BE2A31FCF1171007679C9 /* LibraryCoordinator.swift in Sources */,
 				DC2BE2D91FD09E67007679C9 /* ProfileViewModel.swift in Sources */,
 				DC2BE31C1FD201C1007679C9 /* BooksController.swift in Sources */,
+				DCCB52F21FD5DD0800D73E8F /* AddAuthorController.swift in Sources */,
 				DC2BE3251FD20271007679C9 /* AddAuthorViewController.swift in Sources */,
 				DC2BE3211FD201C1007679C9 /* BookViewModel.swift in Sources */,
 				DC2BE3191FD201C1007679C9 /* AuthorViewModel.swift in Sources */,

@@ -43,7 +43,7 @@ class BookDetailsController: BookDetailsControllerProtocol {
     }
     
     func fetch() {
-        self.booksService.fetchBook(id: self.bookId) { [unowned self] (result) in
+        self.booksService.fetchOneBook(id: self.bookId) { [unowned self] (result) in
             switch result{
                 case .success(let book):
                     self.book = book

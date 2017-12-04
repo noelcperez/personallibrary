@@ -14,6 +14,7 @@ protocol AuthorsControllerProtocol: class, ViewModelUpdateProtocol {
     
     func fetchAuthors()
     func authorId(forAuthorViewModel index: Int) -> String
+    func remove(authorViewModelIndex index: Int, completionHandler: @escaping (String?) -> Void)
 }
 
 class AuthorsController: AuthorsControllerProtocol {
@@ -50,5 +51,17 @@ class AuthorsController: AuthorsControllerProtocol {
     
     func authorId(forAuthorViewModel index: Int) -> String{
         return self.authors[index].id
+    }
+    
+    func remove(authorViewModelIndex index: Int, completionHandler: @escaping (String?) -> Void){
+        let author = self.authors[index]
+        self.authorService.remove(author: author) { (result) in
+            switch result{
+                case .success(_):
+                    self.fetchAuthors()
+                case .error(let error):
+                    completionHandler(error)
+            }
+        }
     }
 }

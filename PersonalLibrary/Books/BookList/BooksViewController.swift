@@ -70,5 +70,17 @@ class BooksViewController: UIViewController, UITableViewDelegate, UITableViewDat
             self.delegate?.showBookDetails(self, bookId: bookId)
         }
     }
-
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+        case .delete:
+            self.booksController?.deleteBook(forViewModelIndex: indexPath.row, completionHandler: { (error) in
+                if let _ = error{
+                    //Show error
+                }
+            })
+        default:
+            break
+        }
+    }
 }

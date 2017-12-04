@@ -14,6 +14,7 @@ protocol BooksControllerProtocol: class, ViewModelUpdateProtocol {
     
     func fetchBooks()
     func bookId(forViewModelIndex index: Int) -> String
+    func deleteBook(forViewModelIndex index: Int, completionHandler: @escaping (String?) -> Void)
 }
 
 class BooksController: NSObject, BooksControllerProtocol {
@@ -46,6 +47,19 @@ class BooksController: NSObject, BooksControllerProtocol {
                 default:
                     //Show error
                     break
+            }
+        }
+    }
+    
+    func deleteBook(forViewModelIndex index: Int, completionHandler: @escaping (String?) -> Void){
+        let book = self.books[index]
+        self.booksService.remove(book: book) { [unowned self] (result) in
+            switch result{
+                case .success(_):
+                    self.fetchBooks()
+                    completionHandler(nil)
+                case .error(let error):
+                    completionHandler(error)
             }
         }
     }

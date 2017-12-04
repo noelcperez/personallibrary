@@ -50,7 +50,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awr-op-7e1">
-                                <rect key="frame" x="160" y="617" width="55" height="30"/>
+                                <rect key="frame" x="160" y="368" width="55" height="30"/>
                                 <state key="normal" title="Sign Up"/>
                                 <connections>
                                     <action selector="signUpButtonTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dfk-WR-5h9"/>
@@ -59,6 +59,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="awr-op-7e1" firstAttribute="top" secondItem="hpb-cG-Cvp" secondAttribute="bottom" constant="20" id="11e-8e-1J8"/>
                             <constraint firstItem="awr-op-7e1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4vC-j1-1vt"/>
                             <constraint firstItem="sKe-iL-Om5" firstAttribute="top" secondItem="kwv-uX-FJY" secondAttribute="bottom" constant="48" id="8Vm-me-f8G"/>
                             <constraint firstItem="hpb-cG-Cvp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DsE-dW-Zpe"/>
@@ -66,7 +67,6 @@
                             <constraint firstItem="kwv-uX-FJY" firstAttribute="leading" secondItem="kNi-5j-FZ5" secondAttribute="leading" id="Rez-BR-1X7"/>
                             <constraint firstItem="kwv-uX-FJY" firstAttribute="top" secondItem="kNi-5j-FZ5" secondAttribute="bottom" constant="8" id="RxH-X7-TBp"/>
                             <constraint firstItem="Fs9-YC-ZZw" firstAttribute="trailing" secondItem="kwv-uX-FJY" secondAttribute="trailing" id="SMG-6b-sIj"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="awr-op-7e1" secondAttribute="bottom" constant="20" id="Vwu-4N-ukc"/>
                             <constraint firstItem="Fs9-YC-ZZw" firstAttribute="top" secondItem="sKe-iL-Om5" secondAttribute="bottom" constant="8" id="Zfb-00-oeU"/>
                             <constraint firstItem="kNi-5j-FZ5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="fBa-j0-P4F"/>
                             <constraint firstItem="sKe-iL-Om5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="jnj-k6-jic"/>

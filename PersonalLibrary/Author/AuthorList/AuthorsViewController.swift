@@ -24,12 +24,16 @@ class AuthorsViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         
         self.viewConfigurator()
-        
-        self.controller?.fetchAuthors()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.controller?.fetchAuthors()
     }
     
     fileprivate func viewConfigurator(){
@@ -69,6 +73,19 @@ class AuthorsViewController: UIViewController, UITableViewDelegate, UITableViewD
             tableView.deselectRow(at: indexPath, animated: true)
             
             self.delegate?.showAuthorDetails(self, authorId: bookId)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+            case .delete:
+                self.controller?.remove(authorViewModelIndex: indexPath.row, completionHandler: { (error) in
+                    if let _ = error{
+                        //Show error
+                    }
+                })
+            default:
+                break
         }
     }
 }

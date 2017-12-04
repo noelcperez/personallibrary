@@ -84,7 +84,7 @@ class LibraryCoordinator: NSObject{
         signInViewController.controller = signInController
         signInViewController.delegate = self
         //Navigation
-        signInViewController.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(LibraryCoordinator.closeAccountManipulation))
+        signInViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(LibraryCoordinator.closeAccountManipulation))
         self.accountManipulationNavigationController?.viewControllers = [signInViewController]
     }
     
@@ -102,7 +102,13 @@ class LibraryCoordinator: NSObject{
     }
     
     @objc fileprivate func addAuthor(){
-        
+        let service = AuthorsService()
+        let controller = AddAuthorController(service: service)
+        let addAuthorViewController = StoryboardScene.Library.addAuthorViewController.instantiate()
+        //Inject properties
+        addAuthorViewController.controller = controller
+        addAuthorViewController.delegate = self
+        self.authorNavigationController?.pushViewController(addAuthorViewController, animated: true)
     }
     
     fileprivate func showAuthentication(){
@@ -141,16 +147,14 @@ extension LibraryCoordinator: BooksViewControllerDelegate{
     }
 }
 
-extension LibraryCoordinator: BookDetailsViewControllerDelegate{
-    func doneWithDetails() {
-        self.booksNavigationController?.popViewController(animated: true)
-    }
-}
-
 extension LibraryCoordinator: AddBookViewControllerDelegate{
     func bookAddedSuccessfully() {
         self.booksNavigationController?.popViewController(animated: true)
     }
+}
+
+extension LibraryCoordinator: BookDetailsViewControllerDelegate{
+    
 }
 
 //MARK: - Authors Navigation delegates
@@ -163,6 +167,12 @@ extension LibraryCoordinator: AuthorsViewControllerDelegate{
         authorDetailsViewController.controller = authorDetailsController
         authorDetailsViewController.delegate = self
         self.authorNavigationController?.pushViewController(authorDetailsViewController, animated: true)
+    }
+}
+
+extension LibraryCoordinator: AddAuthorViewControllerDelegate{
+    func authorAddedSuccesfully() {
+        self.authorNavigationController?.popViewController(animated: true)
     }
 }
 

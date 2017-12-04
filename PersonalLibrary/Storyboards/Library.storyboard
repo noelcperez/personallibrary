@@ -122,7 +122,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yrc-GI-bLa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2617" y="123"/>
+            <point key="canvasLocation" x="2574" y="-624"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="odE-1e-XAW">
@@ -237,13 +237,46 @@
                     <view key="view" contentMode="scaleToFill" id="icd-eO-Ktm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4t-7q-4l9">
+                                <rect key="frame" x="16" y="40" width="33.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K5C-0F-c0f">
+                                <rect key="frame" x="16" y="69" width="339" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5nM-qP-Nq4">
+                                <rect key="frame" x="173" y="119" width="30" height="30"/>
+                                <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="addButtonTouchUpInside:" destination="3tE-0v-nUD" eventType="touchUpInside" id="lHL-vX-Zr2"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="L4t-7q-4l9" firstAttribute="leading" secondItem="acs-ZF-fmt" secondAttribute="leading" constant="16" id="BBJ-66-eSn"/>
+                            <constraint firstItem="K5C-0F-c0f" firstAttribute="top" secondItem="L4t-7q-4l9" secondAttribute="bottom" constant="8" id="Thr-7c-n1g"/>
+                            <constraint firstItem="5nM-qP-Nq4" firstAttribute="centerX" secondItem="icd-eO-Ktm" secondAttribute="centerX" id="cUa-61-h1U"/>
+                            <constraint firstItem="L4t-7q-4l9" firstAttribute="top" secondItem="acs-ZF-fmt" secondAttribute="top" constant="20" id="oL1-ce-A36"/>
+                            <constraint firstItem="K5C-0F-c0f" firstAttribute="leading" secondItem="L4t-7q-4l9" secondAttribute="leading" id="vm0-eT-DPZ"/>
+                            <constraint firstItem="acs-ZF-fmt" firstAttribute="trailing" secondItem="K5C-0F-c0f" secondAttribute="trailing" constant="20" id="w1s-qY-NN0"/>
+                            <constraint firstItem="5nM-qP-Nq4" firstAttribute="top" secondItem="K5C-0F-c0f" secondAttribute="bottom" constant="20" id="zuD-Rq-a4c"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="acs-ZF-fmt"/>
                     </view>
+                    <connections>
+                        <outlet property="authorName" destination="K5C-0F-c0f" id="fgN-aW-VSv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fod-LN-Gf6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2618" y="-625"/>
+            <point key="canvasLocation" x="2574" y="123"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="iL7-7w-hz1">

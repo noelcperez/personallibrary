@@ -40,7 +40,7 @@ class AuthorDetailsController: AuthorDetailsControllerProtocol {
     }
     
     func fetch() {
-        self.authorsService.fetchAuthor(id: self.authorId) { (result) in
+        self.authorsService.fetchOneAuthor(id: self.authorId) { (result) in
             switch result{
                 case .success(let author):
                     self.author = author
@@ -58,6 +58,4 @@ class AuthorDetailsController: AuthorDetailsControllerProtocol {
     func remove() {
         
     }
-    
-
 }
