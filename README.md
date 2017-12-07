@@ -45,3 +45,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 * Nataliya Patsovska's talk on try! swift NY (https://www.tryswift.co/events/2017/nyc/)
 * Sommer Panage's talk on iOS Conf SG 2017 (https://engineers.sg/conference/iosconfsg-2017)
+* Will Townsend's article and example of the Coordinator Pattern (https://will.townsend.io/2016/an-ios-coordinator-pattern)
