@@ -21,10 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        let tabBarController = StoryboardScene.Library.initialScene.instantiate()
-        window?.rootViewController = tabBarController
-        
-        libraryCoordinator = LibraryCoordinator(tabBarController: tabBarController, authenticator: FirebaseAuthenticator())
+        libraryCoordinator = LibraryCoordinator(window: window!, authenticator: FirebaseAuthenticator())
         
         window?.makeKeyAndVisible()
         return true

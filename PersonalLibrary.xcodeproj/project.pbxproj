@@ -190,12 +190,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		DC2BE2A11FCF115A007679C9 /* Coordinator */ = {
+		DC2BE2A11FCF115A007679C9 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
 				DC2BE2A21FCF1171007679C9 /* LibraryCoordinator.swift */,
 			);
-			path = Coordinator;
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 		DC2BE2A41FCF126D007679C9 /* Authentication */ = {
@@ -356,13 +356,13 @@
 				DCAABAEE1FCE163F00C1A7D2 /* AppDelegate.swift */,
 				DC2BE2B11FCF25AD007679C9 /* Result.swift */,
 				DC2BE2CD1FD07D03007679C9 /* ViewModelUpdateProtocol.swift */,
-				DC2BE2A11FCF115A007679C9 /* Coordinator */,
+				DC2BE2A11FCF115A007679C9 /* Coordinators */,
 				DC2BE2A41FCF126D007679C9 /* Authentication */,
+				DCAABB1C1FCF041D00C1A7D2 /* Storyboards */,
 				DC2BE3071FD201C1007679C9 /* Books */,
 				DC2BE2FC1FD201C1007679C9 /* Author */,
 				DCAABB2F1FCF054200C1A7D2 /* Profile */,
 				DC2BE2B31FCF2630007679C9 /* Model */,
-				DCAABB1C1FCF041D00C1A7D2 /* Storyboards */,
 				DCAABAF51FCE163F00C1A7D2 /* Assets.xcassets */,
 				DCAABAFA1FCE163F00C1A7D2 /* Info.plist */,
 				DC2BE2F21FD0BA6C007679C9 /* GoogleService-Info.plist */,

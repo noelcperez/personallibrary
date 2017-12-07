@@ -10,6 +10,8 @@ import UIKit
 
 class LibraryCoordinator: NSObject{
     
+    fileprivate let window: UIWindow
+    
     fileprivate var booksNavigationController: UINavigationController?
     fileprivate var authorNavigationController: UINavigationController?
     fileprivate var profileNavigationController: UINavigationController?
@@ -21,20 +23,22 @@ class LibraryCoordinator: NSObject{
         case profile = 2
     }
     
-    fileprivate var tabBarController: UITabBarController{
-        didSet{
-            tabBarController.delegate = self
-        }
-    }
+    fileprivate var tabBarController: UITabBarController = {
+        let tabBarController = StoryboardScene.Library.initialScene.instantiate()
+        return tabBarController
+    }()
     fileprivate let authenticator: Authenticator
     
-    init(tabBarController: UITabBarController, authenticator: Authenticator) {
-        self.tabBarController = tabBarController
+    init(window: UIWindow, authenticator: Authenticator) {
+        self.window = window
         self.authenticator = authenticator
         
         super.init()
         
-        self.tabBarController.delegate = self
+        self.window.rootViewController = self.tabBarController
+        self.window.makeKeyAndVisible()
+        
+        tabBarController.delegate = self
         
         self.configureNavigation()
     }
@@ -61,6 +65,7 @@ class LibraryCoordinator: NSObject{
         //Inject properties
         authorViewController.controller = authorController
         authorViewController.delegate = self
+        authorViewController.authorVCType = .showdetails
         //Navigation
         authorViewController.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(LibraryCoordinator.addAuthor))
         //Set te author controller as the root controller
@@ -76,6 +81,7 @@ class LibraryCoordinator: NSObject{
         profileViewController.delegate = self
         self.profileNavigationController?.viewControllers = [profileViewController]
         
+        //Configure authentication flow
         self.accountManipulationNavigationController = StoryboardScene.Authentication.initialScene.instantiate()
         let signInService = AuthenticationService()
         let signInController = SignInController(service: signInService)
@@ -94,9 +100,9 @@ class LibraryCoordinator: NSObject{
     
     @objc fileprivate func addBook(){
         let service = BooksService()
-        let controller = AddBookController(service: service)
+        let addBookController = AddBookController(service: service)
         let addBookViewController = StoryboardScene.Library.addBookViewController.instantiate()
-        addBookViewController.controller = controller
+        addBookViewController.controller = addBookController
         addBookViewController.delegate = self
         self.booksNavigationController?.pushViewController(addBookViewController, animated: true)
     }
@@ -138,7 +144,8 @@ extension LibraryCoordinator: UITabBarControllerDelegate{
 extension LibraryCoordinator: BooksViewControllerDelegate{
     func showBookDetails(_ viewController: BooksViewController, bookId: String) {
         let bookService = BooksService()
-        let bookDetailsController = BookDetailsController(booksService: bookService, bookId: bookId)
+        let authorService = AuthorsService()
+        let bookDetailsController = BookDetailsController(booksService: bookService, authorsService: authorService, bookId: bookId)
         let bookDetailsViewController = StoryboardScene.Library.bookDetailsViewController.instantiate()
         //Inject properties
         bookDetailsViewController.bookDetailsController = bookDetailsController
@@ -151,6 +158,19 @@ extension LibraryCoordinator: AddBookViewControllerDelegate{
     func bookAddedSuccessfully() {
         self.booksNavigationController?.popViewController(animated: true)
     }
+    
+    func selectAnAuthor(addBookViewController: AddBookViewController) {
+        //Configure authors tab
+        let authorService = AuthorsService()
+        let authorController = AuthorsController(authorService: authorService)
+        let authorViewController = StoryboardScene.Library.authorsViewController.instantiate()
+        //Inject properties
+        authorViewController.controller = authorController
+        authorViewController.delegate = self
+        authorViewController.viewControllerToRespond = addBookViewController
+        authorViewController.authorVCType = .pick
+        self.booksNavigationController?.show(authorViewController, sender: self)
+    }
 }
 
 extension LibraryCoordinator: BookDetailsViewControllerDelegate{
@@ -159,14 +179,22 @@ extension LibraryCoordinator: BookDetailsViewControllerDelegate{
 
 //MARK: - Authors Navigation delegates
 extension LibraryCoordinator: AuthorsViewControllerDelegate{
-    func showAuthorDetails(_ viewController: AuthorsViewController, authorId: String) {
-        let authorService = AuthorsService()
-        let authorDetailsController = AuthorDetailsController(authorsService: authorService, authorId: authorId)
-        let authorDetailsViewController = StoryboardScene.Library.authorDetailsViewController.instantiate()
-        //Inject properties
-        authorDetailsViewController.controller = authorDetailsController
-        authorDetailsViewController.delegate = self
-        self.authorNavigationController?.pushViewController(authorDetailsViewController, animated: true)
+    func authorPicked(_ viewController: AuthorsViewController, author: Author) {
+        switch viewController.authorVCType {
+        case .pick:
+            if let addBookViewController = viewController.viewControllerToRespond as? AddBookViewController{
+                addBookViewController.controller?.selectedAuthor = author
+            }
+            self.booksNavigationController?.popViewController(animated: true)
+        case .showdetails:
+            let authorService = AuthorsService()
+            let authorDetailsController = AuthorDetailsController(authorsService: authorService, authorId: author.id)
+            let authorDetailsViewController = StoryboardScene.Library.authorDetailsViewController.instantiate()
+            //Inject properties
+            authorDetailsViewController.controller = authorDetailsController
+            authorDetailsViewController.delegate = self
+            self.authorNavigationController?.pushViewController(authorDetailsViewController, animated: true)
+        }
     }
 }
 

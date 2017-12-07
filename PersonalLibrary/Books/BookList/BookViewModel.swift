@@ -10,4 +10,5 @@ import UIKit
 
 struct BookViewModel {
     var name: String
+    var authorName: String
 }

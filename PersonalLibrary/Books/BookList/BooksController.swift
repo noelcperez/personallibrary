@@ -23,7 +23,7 @@ class BooksController: NSObject, BooksControllerProtocol {
     
     private var books = [Book](){
         didSet{
-            self.booksViewModel = books.map{ BookViewModel(name: $0.name) }
+            self.booksViewModel = books.map{ BookViewModel(name: $0.name, authorName: "") }
         }
     }
     

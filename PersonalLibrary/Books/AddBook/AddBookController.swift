@@ -10,6 +10,7 @@ import UIKit
 
 protocol AddBookControllerProtocol {
     var service: BooksServiceProtocol? { get }
+    var selectedAuthor: Author! { set get }
     
     func addBook(name: String, completionHandler: @escaping (String?) -> Void)
 }
@@ -17,13 +18,14 @@ protocol AddBookControllerProtocol {
 class AddBookController: AddBookControllerProtocol {
     
     var service: BooksServiceProtocol?
+    var selectedAuthor: Author!
     
     init(service: BooksServiceProtocol) {
         self.service = service
     }
     
     func addBook(name: String, completionHandler: @escaping (String?) -> Void) {
-        let book = Book(id: "", name: name)
+        let book = Book(id: "", name: name, authorId: self.selectedAuthor.id)
         self.service?.add(book: book, completionHandler: { (result) in
             switch result{
                 case .success(_):

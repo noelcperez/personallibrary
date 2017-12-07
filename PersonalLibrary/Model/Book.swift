@@ -11,7 +11,7 @@ import UIKit
 struct Book: Codable {
     var id: String!
     var name: String
-    
+    var authorId: String
 }
 
 extension Book {
@@ -19,9 +19,11 @@ extension Book {
         let book = try decoder.container(keyedBy: CodingKeys.self)
         
         self.name = try book.decode(String.self, forKey: .name)
+        self.authorId = try book.decode(String.self, forKey: .authorId)
     }
     
     fileprivate enum CodingKeys: String, CodingKey{
         case name
+        case authorId
     }
 }

@@ -15,6 +15,7 @@ protocol BookDetailsViewControllerDelegate: class {
 class BookDetailsViewController: UIViewController {
     
     @IBOutlet var bookName: UILabel!
+    @IBOutlet var authorName: UILabel!
     
     var bookDetailsController: BookDetailsController?
     weak var delegate: BookDetailsViewControllerDelegate?
@@ -32,6 +33,8 @@ class BookDetailsViewController: UIViewController {
     }
 
     func updateViewModel(){
-        self.bookName.text = self.bookDetailsController?.bookViewModel?.name
+        let viewModel = self.bookDetailsController?.bookViewModel
+        self.bookName.text = viewModel?.name
+        self.authorName.text = "Author: " + (viewModel?.authorName ?? "")
     }
 }

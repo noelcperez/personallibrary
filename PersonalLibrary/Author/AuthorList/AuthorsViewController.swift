@@ -8,16 +8,28 @@
 
 import UIKit
 
-protocol AuthorsViewControllerDelegate: class {
-    func showAuthorDetails(_ viewController: AuthorsViewController, authorId: String)
+protocol RespondsToViewController {
+    var viewControllerToRespond: UIViewController! { get }
 }
 
-class AuthorsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+protocol AuthorsViewControllerDelegate: class {
+    func authorPicked(_ viewController: AuthorsViewController, author: Author)
+}
+
+class AuthorsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, RespondsToViewController {
     
     @IBOutlet var tableView: UITableView!
     
+    enum AuthorVCType {
+        case pick
+        case showdetails
+    }
+    
+    var authorVCType = AuthorVCType.pick
+    
     //Property injection
     var controller: AuthorsControllerProtocol?
+    var viewControllerToRespond: UIViewController!
     weak var delegate: AuthorsViewControllerDelegate?
     
     override func viewDidLoad() {
@@ -69,10 +81,10 @@ class AuthorsViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let bookId = self.controller?.authorId(forAuthorViewModel: indexPath.row){
+        if let author = self.controller?.author(forViewModelIndex: indexPath.row){
             tableView.deselectRow(at: indexPath, animated: true)
             
-            self.delegate?.showAuthorDetails(self, authorId: bookId)
+            self.delegate?.authorPicked(self, author: author)
         }
     }
     
