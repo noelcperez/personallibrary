@@ -47,9 +47,12 @@
 		DC2BE3251FD20271007679C9 /* AddAuthorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2BE3241FD20271007679C9 /* AddAuthorViewController.swift */; };
 		DC2BE3271FD202B5007679C9 /* AddBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2BE3261FD202B5007679C9 /* AddBookViewController.swift */; };
 		DC2BE3291FD20303007679C9 /* AddBookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2BE3281FD20303007679C9 /* AddBookController.swift */; };
+		DC9496781FDB203400031E4F /* BooksServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9496771FDB203400031E4F /* BooksServiceTests.swift */; };
+		DC94967A1FDB204200031E4F /* Seeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9496791FDB204200031E4F /* Seeds.swift */; };
+		DC94967D1FDB325700031E4F /* BooksControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC94967C1FDB325700031E4F /* BooksControllerTests.swift */; };
+		DC9496801FDB37D300031E4F /* BooksViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC94967F1FDB37D300031E4F /* BooksViewControllerTests.swift */; };
 		DCAABAEF1FCE163F00C1A7D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAABAEE1FCE163F00C1A7D2 /* AppDelegate.swift */; };
 		DCAABAF61FCE163F00C1A7D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCAABAF51FCE163F00C1A7D2 /* Assets.xcassets */; };
-		DCAABB041FCE163F00C1A7D2 /* PersonalLibraryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAABB031FCE163F00C1A7D2 /* PersonalLibraryTests.swift */; };
 		DCAABB0F1FCE163F00C1A7D2 /* PersonalLibraryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAABB0E1FCE163F00C1A7D2 /* PersonalLibraryUITests.swift */; };
 		DCAABB1F1FCF041D00C1A7D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCAABB1D1FCF041D00C1A7D2 /* LaunchScreen.storyboard */; };
 		DCAABB201FCF041D00C1A7D2 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCAABB1E1FCF041D00C1A7D2 /* Authentication.storyboard */; };
@@ -121,12 +124,15 @@
 		DC2BE3241FD20271007679C9 /* AddAuthorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAuthorViewController.swift; sourceTree = "<group>"; };
 		DC2BE3261FD202B5007679C9 /* AddBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookViewController.swift; sourceTree = "<group>"; };
 		DC2BE3281FD20303007679C9 /* AddBookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookController.swift; sourceTree = "<group>"; };
+		DC9496771FDB203400031E4F /* BooksServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BooksServiceTests.swift; sourceTree = "<group>"; };
+		DC9496791FDB204200031E4F /* Seeds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seeds.swift; sourceTree = "<group>"; };
+		DC94967C1FDB325700031E4F /* BooksControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksControllerTests.swift; sourceTree = "<group>"; };
+		DC94967F1FDB37D300031E4F /* BooksViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewControllerTests.swift; sourceTree = "<group>"; };
 		DCAABAEB1FCE163F00C1A7D2 /* PersonalLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonalLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCAABAEE1FCE163F00C1A7D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCAABAF51FCE163F00C1A7D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DCAABAFA1FCE163F00C1A7D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCAABAFF1FCE163F00C1A7D2 /* PersonalLibraryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PersonalLibraryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DCAABB031FCE163F00C1A7D2 /* PersonalLibraryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalLibraryTests.swift; sourceTree = "<group>"; };
 		DCAABB051FCE163F00C1A7D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCAABB0A1FCE163F00C1A7D2 /* PersonalLibraryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PersonalLibraryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCAABB0E1FCE163F00C1A7D2 /* PersonalLibraryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalLibraryUITests.swift; sourceTree = "<group>"; };
@@ -328,6 +334,30 @@
 			path = AddBook;
 			sourceTree = "<group>";
 		};
+		DC9496761FDB203400031E4F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				DC9496771FDB203400031E4F /* BooksServiceTests.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		DC94967B1FDB324300031E4F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DC94967C1FDB325700031E4F /* BooksControllerTests.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		DC94967E1FDB37BD00031E4F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				DC94967F1FDB37D300031E4F /* BooksViewControllerTests.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		DCAABAE21FCE163F00C1A7D2 = {
 			isa = PBXGroup;
 			children = (
@@ -373,8 +403,11 @@
 		DCAABB021FCE163F00C1A7D2 /* PersonalLibraryTests */ = {
 			isa = PBXGroup;
 			children = (
-				DCAABB031FCE163F00C1A7D2 /* PersonalLibraryTests.swift */,
+				DC94967E1FDB37BD00031E4F /* ViewControllers */,
+				DC94967B1FDB324300031E4F /* Controllers */,
+				DC9496761FDB203400031E4F /* Services */,
 				DCAABB051FCE163F00C1A7D2 /* Info.plist */,
+				DC9496791FDB204200031E4F /* Seeds.swift */,
 			);
 			path = PersonalLibraryTests;
 			sourceTree = "<group>";
@@ -559,9 +592,24 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PersonalLibraryTests/Pods-PersonalLibraryTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/ReSwift/ReSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Reusable/Reusable.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reusable.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -763,7 +811,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCAABB041FCE163F00C1A7D2 /* PersonalLibraryTests.swift in Sources */,
+				DC94967D1FDB325700031E4F /* BooksControllerTests.swift in Sources */,
+				DC9496801FDB37D300031E4F /* BooksViewControllerTests.swift in Sources */,
+				DC9496781FDB203400031E4F /* BooksServiceTests.swift in Sources */,
+				DC94967A1FDB204200031E4F /* Seeds.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

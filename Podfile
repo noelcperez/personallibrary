@@ -16,7 +16,16 @@ target 'PersonalLibrary' do
 
   target 'PersonalLibraryTests' do
     inherit! :search_paths
-    # Pods for testing
+    
+    pod 'Firebase/Core'
+    pod 'Firebase/Database'
+    pod 'Firebase/Crash'
+    pod 'Firebase/Auth'
+    pod 'Firebase/Storage'
+    pod 'Firebase/Analytics'
+    pod 'ReSwift'
+    pod 'Reusable'
+    
   end
 
   target 'PersonalLibraryUITests' do
