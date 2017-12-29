@@ -32,7 +32,7 @@ $ pod install
 * [SwiftGen](https://github.com/SwiftGen/SwiftGen) - Code Generation Tool
 * [ReSwift](https://github.com/ReSwift/ReSwift) - Swift Redux implementation
 * [Firebase](https://firebase.google.com/) - Google Firebase
-* [SwiftLint](https://github.com/realm/SwiftLint) - Swift Lint
+* [SwiftLint](https://github.com/realm/SwiftLint) - Styling and Conventions
 
 ## Author
 
