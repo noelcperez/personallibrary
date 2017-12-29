@@ -14,13 +14,13 @@ protocol SignInViewControllerDelegate: class {
 }
 
 class SignInViewController: UIViewController {
-    
+
     var controller: SignInControllerProtocol?
     weak var delegate: SignInViewControllerDelegate?
 
-    @IBOutlet var email: UITextField!
-    @IBOutlet var password: UITextField!
-    
+    @IBOutlet private var email: UITextField!
+    @IBOutlet private var password: UITextField!
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -28,23 +28,22 @@ class SignInViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
+
     @objc func hello() { }
-    
-    //MARK: - Actions
+
+    // MARK: - Actions
     @IBAction func sigInButtonTouchUpInside(_ sender: UIButton) {
-        if let email = self.email.text, let password = self.password.text{
+        if let email = self.email.text, let password = self.password.text {
             self.controller?.signIn(email: email, password: password, completionHandler: { [unowned self] error in
-                if let _ = error{
+                if error != nil {
                     //Show error
-                }
-                else{
+                } else {
                     self.delegate?.signInSuccessfully()
                 }
             })
         }
     }
-    
+
     @IBAction func signUpButtonTouchUpInside(_ sender: UIButton) {
         self.delegate?.signUp()
     }

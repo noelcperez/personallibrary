@@ -17,12 +17,12 @@ struct Book: Codable {
 extension Book {
     init(from decoder: Decoder) throws {
         let book = try decoder.container(keyedBy: CodingKeys.self)
-        
+
         self.name = try book.decode(String.self, forKey: .name)
         self.authorId = try book.decode(String.self, forKey: .authorId)
     }
-    
-    fileprivate enum CodingKeys: String, CodingKey{
+
+    fileprivate enum CodingKeys: String, CodingKey {
         case name
         case authorId
     }

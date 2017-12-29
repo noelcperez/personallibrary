@@ -13,6 +13,7 @@ target 'PersonalLibrary' do
   pod 'Firebase/Analytics'
   pod 'ReSwift'
   pod 'Reusable'
+  pod 'SwiftLint'
 
   target 'PersonalLibraryTests' do
     inherit! :search_paths

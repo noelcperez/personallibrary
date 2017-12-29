@@ -13,34 +13,33 @@ protocol SignUpViewControllerDelegate: class {
 }
 
 class SignUpViewController: UIViewController {
-    
+
     var controller: SignUpControllerProtocol?
     weak var delegate: SignUpViewControllerDelegate?
 
-    @IBOutlet var emailTextField: UITextField!
-    @IBOutlet var passwordTextField: UITextField!
-    
+    @IBOutlet private var emailTextField: UITextField!
+    @IBOutlet private var passwordTextField: UITextField!
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    //MARK: My functions
-    fileprivate func clearView(){
+
+    // MARK: My functions
+    fileprivate func clearView() {
         self.emailTextField.text = ""
         self.passwordTextField.text = ""
     }
-    
+
     @IBAction func signUpButtonTouchUpInside(_ sender: UIButton) {
-        if let email = self.emailTextField.text, let password = self.passwordTextField.text{
+        if let email = self.emailTextField.text, let password = self.passwordTextField.text {
             self.controller?.signUp(email: email, password: password, completionHandler: { [unowned self] error in
-                if let _ = error{
+                if error != nil {
                     //Show error
-                }
-                else{
+                } else {
                     self.clearView()
                     self.delegate?.signUpSuccessfully()
                 }

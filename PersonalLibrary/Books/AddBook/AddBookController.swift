@@ -10,30 +10,30 @@ import UIKit
 
 protocol AddBookControllerProtocol {
     var service: BooksServiceProtocol? { get }
-    var selectedAuthor: Author! { set get }
-    
+    var selectedAuthor: Author! { get set }
+
     func addBook(name: String, completionHandler: @escaping (String?) -> Void)
 }
 
 class AddBookController: AddBookControllerProtocol {
-    
+
     var service: BooksServiceProtocol?
     var selectedAuthor: Author!
-    
+
     init(service: BooksServiceProtocol) {
         self.service = service
     }
-    
+
     func addBook(name: String, completionHandler: @escaping (String?) -> Void) {
         let book = Book(id: "", name: name, authorId: self.selectedAuthor.id)
         self.service?.add(book: book, completionHandler: { (result) in
-            switch result{
-                case .success(_):
-                    completionHandler(nil)
-                case .error(let error):
-                    completionHandler(error)
+            switch result {
+            case .success:
+                completionHandler(nil)
+            case .error(let error):
+                completionHandler(error)
             }
-            
+
         })
     }
 }

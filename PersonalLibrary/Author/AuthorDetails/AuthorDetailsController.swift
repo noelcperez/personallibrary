@@ -11,7 +11,7 @@ import UIKit
 protocol AuthorDetailsControllerProtocol: class, ViewModelUpdateProtocol {
     var authorsService: AuthorsServiceProtocol { get }
     var authorViewModel: AuthorViewModel? { get }
-    
+
     func fetch()
     func editAuthor(authorName: String)
     func remove()
@@ -19,43 +19,43 @@ protocol AuthorDetailsControllerProtocol: class, ViewModelUpdateProtocol {
 
 class AuthorDetailsController: AuthorDetailsControllerProtocol {
     var viewModelUpdated: (() -> Void)?
-    
+
     private (set) var authorsService: AuthorsServiceProtocol
-    private (set) var authorViewModel: AuthorViewModel?{
-        didSet{
+    private (set) var authorViewModel: AuthorViewModel? {
+        didSet {
             viewModelUpdated?()
         }
     }
-    
-    private var author: Author!{
-        didSet{
+
+    private var author: Author! {
+        didSet {
             self.authorViewModel = AuthorViewModel(name: author.name)
         }
     }
     private let authorId: String!
-    
+
     init(authorsService: AuthorsServiceProtocol, authorId: String) {
         self.authorsService = authorsService
         self.authorId = authorId
     }
-    
+
     func fetch() {
         self.authorsService.fetchOneAuthor(id: self.authorId) { (result) in
-            switch result{
-                case .success(let author):
-                    self.author = author
-                case .error(_):
-                    //Show error
-                    break
+            switch result {
+            case .success(let author):
+                self.author = author
+            case .error:
+                //Show error
+                break
             }
         }
     }
-    
+
     func editAuthor(authorName: String) {
-        
+
     }
-    
+
     func remove() {
-        
+
     }
 }

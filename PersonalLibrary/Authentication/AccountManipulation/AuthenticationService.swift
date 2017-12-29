@@ -17,23 +17,21 @@ protocol AuthenticationServiceProtocol {
 }
 
 class AuthenticationService: AuthenticationServiceProtocol {
-    func signIn(email: String, password: String, completionHandler: @escaping AuthenticationResultCallback){
-        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
-            if let the_error = error{
+    func signIn(email: String, password: String, completionHandler: @escaping AuthenticationResultCallback) {
+        Auth.auth().signIn(withEmail: email, password: password) { (_, error) in
+            if let the_error = error {
                 completionHandler(Result.error(the_error.localizedDescription))
-            }
-            else{
+            } else {
                 completionHandler(Result.success(Profile(id: "", name: "")))
             }
         }
     }
-    
-    func signUp(email: String, password: String, completionHandler: @escaping AuthenticationResultCallback){
-        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
-            if let the_error = error{
+
+    func signUp(email: String, password: String, completionHandler: @escaping AuthenticationResultCallback) {
+        Auth.auth().createUser(withEmail: email, password: password) { (_, error) in
+            if let the_error = error {
                 completionHandler(Result.error(the_error.localizedDescription))
-            }
-            else{
+            } else {
                 completionHandler(Result.success(Profile(id: "", name: "")))
             }
         }
