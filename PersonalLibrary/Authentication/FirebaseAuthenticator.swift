@@ -10,10 +10,8 @@ import UIKit
 import Firebase
 
 class FirebaseAuthenticator: Authenticator {
-    var isUserAuthenticated: Bool{
-        get {
-            //if let _ = try? Auth.auth().signOut(){ }
-            return Auth.auth().currentUser != nil
-        }
+    var isUserAuthenticated: Bool {
+        //if let _ = try? Auth.auth().signOut(){ }
+        return Auth.auth().currentUser != nil
     }
 }

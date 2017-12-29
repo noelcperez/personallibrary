@@ -19,7 +19,7 @@ class BookTableViewCell: UITableViewCell, NibReusable {
         super.setSelected(selected, animated: animated)
     }
 
-    func configure(viewModel: BookViewModel){
+    func configure(viewModel: BookViewModel) {
         self.textLabel?.text = viewModel.name
     }
 }

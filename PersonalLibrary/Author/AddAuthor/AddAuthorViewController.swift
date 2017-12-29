@@ -13,9 +13,9 @@ protocol AddAuthorViewControllerDelegate: class {
 }
 
 class AddAuthorViewController: UIViewController {
-    
-    @IBOutlet var authorName: UITextField!
-    
+
+    @IBOutlet private var authorName: UITextField!
+
     var controller: AddAuthorControllerProtocol?
     weak var delegate: AddAuthorViewControllerDelegate?
 
@@ -28,12 +28,11 @@ class AddAuthorViewController: UIViewController {
     }
 
     @IBAction func addButtonTouchUpInside(_ sender: UIButton) {
-        if let author_name = self.authorName.text{
+        if let author_name = self.authorName.text {
             self.controller?.addAuthor(name: author_name, completionHandler: { [unowned self] (error) in
-                if let _ = error{
+                if error != nil {
                     //Show error
-                }
-                else{
+                } else {
                     self.delegate?.authorAddedSuccesfully()
                 }
             })

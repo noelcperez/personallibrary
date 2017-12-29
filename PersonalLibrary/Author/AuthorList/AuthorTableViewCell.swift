@@ -18,8 +18,8 @@ class AuthorTableViewCell: UITableViewCell, NibReusable {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    
-    func configure(viewModel: AuthorViewModel){
+
+    func configure(viewModel: AuthorViewModel) {
         self.textLabel?.text = viewModel.name
     }
 

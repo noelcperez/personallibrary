@@ -9,29 +9,29 @@
 import UIKit
 
 protocol AuthorDetailsViewControllerDelegate: class {
-    
+
 }
 
 class AuthorDetailsViewController: UIViewController {
-    
-    @IBOutlet var authorName: UILabel!
-    
+
+    @IBOutlet private var authorName: UILabel!
+
     var controller: AuthorDetailsControllerProtocol?
     weak var delegate: AuthorDetailsViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.controller?.viewModelUpdated = viewModelUpdated
-        
+
         self.controller?.fetch()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    func viewModelUpdated(){
+
+    func viewModelUpdated() {
         self.authorName.text = self.controller?.authorViewModel?.name
     }
 

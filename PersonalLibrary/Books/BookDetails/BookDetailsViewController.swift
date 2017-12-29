@@ -9,22 +9,22 @@
 import UIKit
 
 protocol BookDetailsViewControllerDelegate: class {
-    
+
 }
 
 class BookDetailsViewController: UIViewController {
-    
-    @IBOutlet var bookName: UILabel!
-    @IBOutlet var authorName: UILabel!
-    
+
+    @IBOutlet private var bookName: UILabel!
+    @IBOutlet private var authorName: UILabel!
+
     var bookDetailsController: BookDetailsController?
     weak var delegate: BookDetailsViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.bookDetailsController?.viewModelUpdated = updateViewModel
-    
+
         self.bookDetailsController?.fetch()
     }
 
@@ -32,7 +32,7 @@ class BookDetailsViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
 
-    func updateViewModel(){
+    func updateViewModel() {
         let viewModel = self.bookDetailsController?.bookViewModel
         self.bookName.text = viewModel?.name
         self.authorName.text = "Author: " + (viewModel?.authorName ?? "")

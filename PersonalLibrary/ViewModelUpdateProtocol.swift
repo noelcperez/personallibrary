@@ -9,5 +9,5 @@
 import UIKit
 
 protocol ViewModelUpdateProtocol {
-    var viewModelUpdated: (() -> Void)? { set get }
+    var viewModelUpdated: (() -> Void)? { get set }
 }

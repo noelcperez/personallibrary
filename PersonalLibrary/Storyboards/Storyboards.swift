@@ -24,7 +24,7 @@ extension StoryboardType {
 struct SceneType<T: Any> {
     let storyboard: StoryboardType.Type
     let identifier: String
-    
+
     func instantiate() -> T {
         let identifier = self.identifier
         guard let controller = storyboard.storyboard.instantiateViewController(withIdentifier: identifier) as? T else {
@@ -36,7 +36,7 @@ struct SceneType<T: Any> {
 
 struct InitialSceneType<T: Any> {
     let storyboard: StoryboardType.Type
-    
+
     func instantiate() -> T {
         guard let controller = storyboard.storyboard.instantiateInitialViewController() as? T else {
             fatalError("ViewController is not of the expected class \(T.self).")
@@ -58,35 +58,35 @@ extension UIViewController {
 enum StoryboardScene {
     enum Authentication: StoryboardType {
         static let storyboardName = "Authentication"
-        
+
         static let initialScene = InitialSceneType<UINavigationController>(storyboard: Authentication.self)
-        
+
         static let signInViewController = SceneType<PersonalLibrary.SignInViewController>(storyboard: Authentication.self, identifier: "SignInViewController")
-        
+
         static let signUpViewController = SceneType<PersonalLibrary.SignUpViewController>(storyboard: Authentication.self, identifier: "SignUpViewController")
     }
     enum LaunchScreen: StoryboardType {
         static let storyboardName = "LaunchScreen"
-        
+
         static let initialScene = InitialSceneType<UIViewController>(storyboard: LaunchScreen.self)
     }
     enum Library: StoryboardType {
         static let storyboardName = "Library"
-        
+
         static let initialScene = InitialSceneType<UITabBarController>(storyboard: Library.self)
-        
+
         static let addAuthorViewController = SceneType<PersonalLibrary.AddAuthorViewController>(storyboard: Library.self, identifier: "AddAuthorViewController")
-        
+
         static let addBookViewController = SceneType<PersonalLibrary.AddBookViewController>(storyboard: Library.self, identifier: "AddBookViewController")
-        
+
         static let authorDetailsViewController = SceneType<PersonalLibrary.AuthorDetailsViewController>(storyboard: Library.self, identifier: "AuthorDetailsViewController")
-        
+
         static let authorsViewController = SceneType<PersonalLibrary.AuthorsViewController>(storyboard: Library.self, identifier: "AuthorsViewController")
-        
+
         static let bookDetailsViewController = SceneType<PersonalLibrary.BookDetailsViewController>(storyboard: Library.self, identifier: "BookDetailsViewController")
-        
+
         static let booksViewController = SceneType<PersonalLibrary.BooksViewController>(storyboard: Library.self, identifier: "BooksViewController")
-        
+
         static let profileViewController = SceneType<PersonalLibrary.ProfileViewController>(storyboard: Library.self, identifier: "ProfileViewController")
     }
 }

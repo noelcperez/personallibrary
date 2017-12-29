@@ -5,7 +5,7 @@ I wanted to use Storyboards as well, all over internet is possible to find a sol
 
 ## Version
 
-0.1
+0.2
 
 ## Build and Runtime Requirements
 + Xcode 8.0 or later

@@ -17,22 +17,20 @@ protocol ProfileServiceProtocol {
 }
 
 class ProfileService: NSObject, ProfileServiceProtocol {
-    
+
     func fetchUser(completionHandler: @escaping UserResultCallback) {
-        if let user = Auth.auth().currentUser, let email = user.email{
+        if let user = Auth.auth().currentUser, let email = user.email {
             completionHandler(Result.success(Profile(id: user.uid, name: email)))
-        }
-        else{
+        } else {
             completionHandler(Result.error("Not found"))
         }
     }
-    
-    func signOut(completionHandler: (String?) -> Void){
+
+    func signOut(completionHandler: (String?) -> Void) {
         do {
             try Auth.auth().signOut()
             completionHandler(nil)
-        }
-        catch let error{
+        } catch let error {
             completionHandler(error.localizedDescription)
         }
     }

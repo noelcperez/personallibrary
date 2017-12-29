@@ -16,11 +16,11 @@ struct Author: Codable {
 extension Author {
     init(from decoder: Decoder) throws {
         let author = try decoder.container(keyedBy: CodingKeys.self)
-        
+
         self.name = try author.decode(String.self, forKey: .name)
     }
-    
-    fileprivate enum CodingKeys: String, CodingKey{
+
+    fileprivate enum CodingKeys: String, CodingKey {
         case name
     }
 }
