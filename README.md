@@ -37,7 +37,7 @@ $ pod install
 ## Author
 
 **Noel Perez**
-* GitHub (https://github.com/noelcarlosperez)
+* GitHub (https://github.com/noelcperez)
 * LinkedIn (https://www.linkedin.com/in/noelcarlosperezdieguez/)
 
 
