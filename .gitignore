@@ -30,4 +30,5 @@ PersonalLibrary.xcodeproj/project.xcworkspace/xcuserdata/noelcperez.xcuserdatad/
 *.app.dSYM.zip
 
 fastlane/report.xml
+fastlane/README.md
 fastlane/screenshots
