@@ -5,7 +5,7 @@ I wanted to use Storyboards as well, all over internet is possible to find a sol
 
 ## Version
 
-0.2.1
+0.2.2
 
 ## Build and Runtime Requirements
 + Xcode 8.0 or later
@@ -33,6 +33,7 @@ $ pod install
 * [ReSwift](https://github.com/ReSwift/ReSwift) - Swift Redux implementation
 * [Firebase](https://firebase.google.com/) - Google Firebase
 * [SwiftLint](https://github.com/realm/SwiftLint) - Styling and Conventions
+* [Fastlane](https://fastlane.tools/) - Automation of development and release process
 
 ## Author
 
