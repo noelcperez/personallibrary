@@ -1,5 +1,4 @@
 Pods
-Pods/
 Podfile.lock
 .DS_Store
 
@@ -24,3 +23,11 @@ PersonalLibrary.xcworkspace/xcuserdata/noelcperez.xcuserdatad/xcdebugger/Breakpo
 PersonalLibrary.xcworkspace/xcuserdata/noelcperez.xcuserdatad/
 PersonalLibrary.xcodeproj/project.xcworkspace/xcuserdata/noelcperez.xcuserdatad/UserInterfaceState.xcuserstate
 *.xcuserstate
+
+## Obj-C/Swift specific
+*.hmap
+*.ipa
+*.app.dSYM.zip
+
+fastlane/report.xml
+fastlane/screenshots

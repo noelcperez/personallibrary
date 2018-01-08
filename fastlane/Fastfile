@@ -18,8 +18,8 @@ default_platform(:ios)
 platform :ios do
   before_all do
     # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
-    cocoapods
     # cocoapods
+    swiftlint
   end
 
   desc "Runs all the tests"
@@ -30,12 +30,18 @@ platform :ios do
   desc "Submit a new Beta Build to Apple TestFlight"
   desc "This will also make sure the profile is up to date"
   lane :beta do
-    # sync_code_signing(type: "appstore") # more information: https://codesigning.guide
-    build_app # more options available
+    # Ensure that your git status is not dirty
+    ensure_git_status_clean
+    # Increment the build number (not the version number)
+    build_number = increment_build_number(xcodeproj: "PersonalLibrary.xcodeproj")
+    # Commit the version bump
+    commit_version_bump(message: "Uploaded build " + build_number + " to TestFlight",xcodeproj: "PersonalLibrary.xcodeproj")
+    # Push the new commit and tag back to your git remote
+    push_to_git_remote
+    #build the app
+    build_app(scheme: "PersonalLibrary")
+    #upload app to TestFlight
     upload_to_testflight
-
-    # sh "your_script.sh"
-    # You can also use other beta testing services here (run `fastlane actions`)
   end
 
   desc "Deploy a new version to the App Store"
