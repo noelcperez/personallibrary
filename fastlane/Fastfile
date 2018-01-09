@@ -31,7 +31,7 @@ platform :ios do
   desc "This will also make sure the profile is up to date"
   lane :beta do
     # Ensure that your git status is not dirty
-    ensure_git_status_clean
+    # ensure_git_status_clean
     # Increment the build number (not the version number)
     build_number = increment_build_number(xcodeproj: "PersonalLibrary.xcodeproj")
     # Commit the version bump
