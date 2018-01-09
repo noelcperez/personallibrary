@@ -47,7 +47,6 @@
 		DC2BE3251FD20271007679C9 /* AddAuthorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2BE3241FD20271007679C9 /* AddAuthorViewController.swift */; };
 		DC2BE3271FD202B5007679C9 /* AddBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2BE3261FD202B5007679C9 /* AddBookViewController.swift */; };
 		DC2BE3291FD20303007679C9 /* AddBookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2BE3281FD20303007679C9 /* AddBookController.swift */; };
-		DC9496781FDB203400031E4F /* BooksServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9496771FDB203400031E4F /* BooksServiceTests.swift */; };
 		DC94967A1FDB204200031E4F /* Seeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9496791FDB204200031E4F /* Seeds.swift */; };
 		DC94967D1FDB325700031E4F /* BooksControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC94967C1FDB325700031E4F /* BooksControllerTests.swift */; };
 		DC9496801FDB37D300031E4F /* BooksViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC94967F1FDB37D300031E4F /* BooksViewControllerTests.swift */; };
@@ -124,7 +123,6 @@
 		DC2BE3241FD20271007679C9 /* AddAuthorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAuthorViewController.swift; sourceTree = "<group>"; };
 		DC2BE3261FD202B5007679C9 /* AddBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookViewController.swift; sourceTree = "<group>"; };
 		DC2BE3281FD20303007679C9 /* AddBookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookController.swift; sourceTree = "<group>"; };
-		DC9496771FDB203400031E4F /* BooksServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BooksServiceTests.swift; sourceTree = "<group>"; };
 		DC9496791FDB204200031E4F /* Seeds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seeds.swift; sourceTree = "<group>"; };
 		DC94967C1FDB325700031E4F /* BooksControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksControllerTests.swift; sourceTree = "<group>"; };
 		DC94967F1FDB37D300031E4F /* BooksViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewControllerTests.swift; sourceTree = "<group>"; };
@@ -334,14 +332,6 @@
 			path = AddBook;
 			sourceTree = "<group>";
 		};
-		DC9496761FDB203400031E4F /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				DC9496771FDB203400031E4F /* BooksServiceTests.swift */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
 		DC94967B1FDB324300031E4F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -405,7 +395,6 @@
 			children = (
 				DC94967E1FDB37BD00031E4F /* ViewControllers */,
 				DC94967B1FDB324300031E4F /* Controllers */,
-				DC9496761FDB203400031E4F /* Services */,
 				DCAABB051FCE163F00C1A7D2 /* Info.plist */,
 				DC9496791FDB204200031E4F /* Seeds.swift */,
 			);
@@ -827,7 +816,6 @@
 			files = (
 				DC94967D1FDB325700031E4F /* BooksControllerTests.swift in Sources */,
 				DC9496801FDB37D300031E4F /* BooksViewControllerTests.swift in Sources */,
-				DC9496781FDB203400031E4F /* BooksServiceTests.swift in Sources */,
 				DC94967A1FDB204200031E4F /* Seeds.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
